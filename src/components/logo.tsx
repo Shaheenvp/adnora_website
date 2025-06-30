@@ -6,8 +6,8 @@ export function Logo({ className }: { className?: string }) {
     <Image
       src="/logo.svg"
       alt="Adnora Productions Logo"
-      width={130}
-      height={50}
+      width={1080}
+      height={1080}
       className={cn('h-10 w-auto', className)}
       priority
     />
