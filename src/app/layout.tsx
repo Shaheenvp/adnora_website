@@ -18,8 +18,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Adnora Digital Hub',
-  description: 'Adnora Productions - Crafting Digital Experiences That Convert.',
+  title: 'Adnora Productions | Digital Marketing & Web Development Agency',
+  description: 'Adnora Productions is a full-service digital marketing agency in India, specializing in SEO, content creation, branding, and web & app development. We craft digital experiences that drive growth and convert visitors into customers.',
+  keywords: 'digital marketing, seo, content creation, branding, web development, app development, social media marketing, marketing agency, Adnora Productions, Kerala, India',
   icons: {
     icon: '/logo.svg',
   },
