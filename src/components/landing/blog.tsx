@@ -7,7 +7,7 @@ const blogPosts = [
   {
     title: 'The Future of SEO in a Cookieless World',
     image: 'https://placehold.co/600x400',
-    dataAiHint: 'data analytics',
+    dataAiHint: 'search engine results',
     excerpt: 'As privacy regulations tighten, the digital marketing landscape is shifting. Here’s how to prepare your SEO strategy...',
     author: 'Jane Doe',
     authorAvatar: 'https://placehold.co/40x40',
@@ -17,7 +17,7 @@ const blogPosts = [
   {
     title: '5 Branding Mistakes That Are Costing You Customers',
     image: 'https://placehold.co/600x400',
-    dataAiHint: 'business meeting',
+    dataAiHint: 'broken logo concept',
     excerpt: 'Your brand is more than just a logo. Avoid these common pitfalls to build a brand that resonates and retains...',
     author: 'John Smith',
     authorAvatar: 'https://placehold.co/40x40',

@@ -28,11 +28,11 @@ export function Hero() {
           <div className="flex justify-center lg:justify-end">
             <Image
               src="https://placehold.co/800x600"
-              alt="A team collaborating on a digital project"
+              alt="Dynamic visualization of a digital marketing campaign"
               width={800}
               height={600}
               className="rounded-xl shadow-2xl shadow-primary/10 transform transition-all duration-500 hover:scale-105"
-              data-ai-hint="digital marketing collaboration"
+              data-ai-hint="futuristic digital interface"
               priority
             />
           </div>
