@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Github, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -48,17 +48,13 @@ export function Footer() {
           <div className="lg:col-span-3">
             <h3 className="text-lg font-semibold mb-4 font-headline">Contact Us</h3>
             <ul className="space-y-4 text-foreground/80">
-              <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 mt-1 text-primary flex-shrink-0" />
-                <span>123 Digital Avenue, Tech City, 12345</span>
-              </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <a href="mailto:hello@adnora.com" className="hover:text-primary">hello@adnora.com</a>
+                <a href="mailto:info@adnoraproductions.in" className="hover:text-primary">info@adnoraproductions.in</a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-                <a href="tel:+1234567890" className="hover:text-primary">(123) 456-7890</a>
+                <a href="tel:+919544453993" className="hover:text-primary">+91 95444 53993</a>
               </li>
             </ul>
           </div>
@@ -79,8 +75,8 @@ export function Footer() {
         <div className="flex flex-col-reverse items-center justify-between gap-6 md:flex-row">
           <p className="text-sm text-foreground/60">&copy; {new Date().getFullYear()} Adnora Productions. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <Link href="#" aria-label="Twitter">
-              <Twitter className="h-6 w-6 text-foreground/60 transition-colors hover:text-primary" />
+            <Link href="https://www.instagram.com/adnora.in" aria-label="Instagram">
+              <Instagram className="h-6 w-6 text-foreground/60 transition-colors hover:text-primary" />
             </Link>
             <Link href="#" aria-label="GitHub">
               <Github className="h-6 w-6 text-foreground/60 transition-colors hover:text-primary" />
