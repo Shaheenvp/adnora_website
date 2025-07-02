@@ -4,22 +4,22 @@ import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    title: 'CEO, TechCorp',
+    name: 'Samad',
+    title: 'Owner, Madreena Kitchen',
     avatar: 'https://placehold.co/40x40',
-    testimonial: 'Adnora Productions transformed our online presence. Their digital marketing strategies doubled our leads in just three months. Highly recommended!',
+    testimonial: 'Adnora Productions took our restaurant from a local favorite to a digital sensation. Their content creation and marketing have been a game-changer for our business.',
   },
   {
-    name: 'Michael Chen',
-    title: 'Founder, InnovateHub',
+    name: 'Noufal',
+    title: 'Owner, Madreena Kitchen',
     avatar: 'https://placehold.co/40x40',
-    testimonial: 'The branding work they did for us was exceptional. They captured our essence perfectly and gave us a modern, professional look that resonates with our audience.',
+    testimonial: 'The team at Adnora is simply brilliant. They understand the food industry and how to make a brand stand out. Our online orders have soared since we started working with them.',
   },
   {
-    name: 'Emily Rodriguez',
-    title: 'Marketing Director, Global Solutions',
+    name: 'Amjad',
+    title: 'Founder, Edufy Overseas',
     avatar: 'https://placehold.co/40x40',
-    testimonial: "Working with Adnora was a breeze. Their team is creative, responsive, and truly understands the nuances of content creation. The video series they produced was a huge success.",
+    testimonial: "For anyone looking to build a strong digital presence, I can't recommend Adnora enough. Their web development and branding services gave our consultancy the professional edge we needed.",
   },
 ];
 
