@@ -3,22 +3,22 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const services = [
   {
-    icon: <Megaphone className="h-10 w-10 text-primary" />,
+    icon: <Megaphone className="h-12 w-12 text-primary" />,
     title: 'Digital Marketing',
     description: 'Elevate your reach with data-driven SEO, SEM, and social media campaigns that deliver measurable results.',
   },
   {
-    icon: <PenSquare className="h-10 w-10 text-primary" />,
+    icon: <PenSquare className="h-12 w-12 text-primary" />,
     title: 'Content Creation',
     description: 'Engage your audience with compelling blog posts, stunning visuals, and high-quality video production.',
   },
   {
-    icon: <Gem className="h-10 w-10 text-primary" />,
+    icon: <Gem className="h-12 w-12 text-primary" />,
     title: 'Branding',
     description: 'Forge a powerful brand identity with our strategic approach to logo design, messaging, and market positioning.',
   },
   {
-    icon: <Codepen className="h-10 w-10 text-primary" />,
+    icon: <Codepen className="h-12 w-12 text-primary" />,
     title: 'Web & App Development',
     description: 'Build robust, scalable, and beautiful websites and mobile applications that provide seamless user experiences.',
   },
@@ -40,11 +40,11 @@ export function Services() {
         <div className="mx-auto grid max-w-5xl items-start gap-8 py-12 sm:grid-cols-2 md:gap-12 lg:max-w-none">
           {services.map((service) => (
             <Card key={service.title} className="group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
-              <CardHeader className="flex flex-row items-center gap-4">
+              <CardHeader className="flex flex-row items-center gap-4 p-6">
                 {service.icon}
-                <CardTitle className="font-headline">{service.title}</CardTitle>
+                <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-6 pt-0">
                 <p className="text-foreground/80">{service.description}</p>
               </CardContent>
             </Card>

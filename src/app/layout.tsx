@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import { Roboto, Poppins } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
@@ -11,11 +11,17 @@ const roboto = Roboto({
   variable: '--font-roboto',
 });
 
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['600', '700', '900'],
+  variable: '--font-poppins',
+});
+
 export const metadata: Metadata = {
   title: 'Adnora Digital Hub',
   description: 'Adnora Productions - Crafting Digital Experiences That Convert.',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/logo.svg',
   },
 };
 
@@ -26,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={cn('font-body antialiased', roboto.variable)}>
+      <body className={cn('font-body antialiased', roboto.variable, poppins.variable)}>
         {children}
         <Toaster />
         <WhatsAppFAB />

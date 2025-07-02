@@ -48,10 +48,10 @@ export function Portfolio() {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid gap-6 py-12 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+        <div className="mx-auto grid gap-8 py-12 md:grid-cols-2">
           {portfolioItems.map((item) => (
             <Link key={item.title} href={item.link} className="group block">
-              <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary">
+              <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
                 <CardHeader className="p-0">
                   <div className="overflow-hidden aspect-video">
                     <Image
