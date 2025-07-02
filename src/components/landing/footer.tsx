@@ -7,7 +7,9 @@ import { Separator } from '@/components/ui/separator';
 
 const navLinks = [
     { href: '#services', label: 'Services' },
+    { href: '#content-marketing', label: 'Content Marketing' },
     { href: '#portfolio', label: 'Portfolio' },
+    { href: '#testimonials', label: 'Testimonials' },
     { href: '#clients', label: 'Clients' },
     { href: '#blog', label: 'Blog' },
     { href: '#contact', label: 'Contact' },
@@ -18,7 +20,6 @@ export function Footer() {
     <footer className="bg-card border-t">
       <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-12 lg:grid-cols-12">
-          {/* Column 1: Logo and About */}
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" aria-label="Adnora Home" className="mb-4 inline-block">
               <Logo />
@@ -28,7 +29,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Column 2: Quick Links */}
           <div className="lg:col-span-2">
             <h3 className="text-lg font-semibold mb-4 font-headline">Quick Links</h3>
             <ul className="space-y-3">
@@ -45,7 +45,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Contact Info */}
           <div className="lg:col-span-3">
             <h3 className="text-lg font-semibold mb-4 font-headline">Contact Us</h3>
             <ul className="space-y-4 text-foreground/80">
@@ -60,7 +59,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Newsletter */}
           <div className="lg:col-span-3">
             <h3 className="text-lg font-semibold mb-4 font-headline">Stay Updated</h3>
             <p className="text-foreground/80 mb-4">Subscribe to our newsletter for the latest insights.</p>

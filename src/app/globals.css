@@ -65,3 +65,17 @@
     @apply w-full py-12 md:py-24 lg:py-32;
   }
 }
+
+@layer utilities {
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+}
