@@ -8,42 +8,12 @@ const clients = [
   },
   {
     name: 'Edufy Overseas',
-    logo: 'https://placehold.co/150x70.png',
+    logo: '/edufy.png',
     dataAiHint: 'Edufy Overseas logo',
-  },
-  {
-    name: 'TechCorp',
-    logo: 'https://placehold.co/150x70.png',
-    dataAiHint: 'corporate tech logo',
-  },
-  {
-    name: 'InnovateHub',
-    logo: 'https://placehold.co/150x70.png',
-    dataAiHint: 'modern startup logo',
-  },
-  {
-    name: 'Global Solutions',
-    logo: 'https://placehold.co/150x70.png',
-    dataAiHint: 'globe professional logo',
-  },
-  {
-    name: 'EcoGoods',
-    logo: 'https://placehold.co/150x70.png',
-    dataAiHint: 'green leaf logo',
-  },
-  {
-    name: 'Apex Industries',
-    logo: 'https://placehold.co/150x70.png',
-    dataAiHint: 'mountain peak logo',
-  },
-  {
-    name: 'Quantum Systems',
-    logo: 'https://placehold.co/150x70.png',
-    dataAiHint: 'atom circuit logo',
   },
 ];
 
-const logos = [...clients, ...clients];
+const logos = [...clients, ...clients, ...clients, ...clients];
 
 export function Clients() {
   return (
