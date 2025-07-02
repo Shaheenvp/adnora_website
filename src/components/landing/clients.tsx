@@ -3,8 +3,13 @@ import Image from 'next/image';
 const clients = [
   {
     name: 'Madreena Kitchen',
-    logo: 'https://placehold.co/150x70.png',
+    logo: '/madreena-kitchen.png',
     dataAiHint: 'Madreena Kitchen logo',
+  },
+  {
+    name: 'Edufy Overseas',
+    logo: 'https://placehold.co/150x70.png',
+    dataAiHint: 'Edufy Overseas logo',
   },
   {
     name: 'TechCorp',
@@ -25,11 +30,6 @@ const clients = [
     name: 'EcoGoods',
     logo: 'https://placehold.co/150x70.png',
     dataAiHint: 'green leaf logo',
-  },
-  {
-    name: 'NextGen Ventures',
-    logo: 'https://placehold.co/150x70.png',
-    dataAiHint: 'arrow forward logo',
   },
   {
     name: 'Apex Industries',
@@ -69,7 +69,7 @@ export function Clients() {
                 src={client.logo}
                 alt={`${client.name} Logo`}
                 width={140}
-                height={60}
+                height={70}
                 className="object-contain filter grayscale transition-all duration-300 hover:grayscale-0 hover:scale-105"
                 data-ai-hint={client.dataAiHint}
               />
@@ -83,7 +83,7 @@ export function Clients() {
                 src={client.logo}
                 alt={`${client.name} Logo`}
                 width={140}
-                height={60}
+                height={70}
                 className="object-contain filter grayscale transition-all duration-300 hover:grayscale-0 hover:scale-105"
                 data-ai-hint={client.dataAiHint}
               />
