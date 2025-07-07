@@ -54,22 +54,25 @@ export function TaglineGenerator() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
     setTaglines([]);
-    try {
-      const result = await handleGenerateTaglines(values as GenerateTaglinesInput);
-      if (result.taglines) {
-        setTaglines(result.taglines);
-      } else {
-        throw new Error('Failed to generate taglines.');
-      }
-    } catch (error) {
+    
+    const result = await handleGenerateTaglines(values as GenerateTaglinesInput);
+
+    if (result.error) {
+      toast({
+        variant: 'destructive',
+        title: 'Error Generating Taglines',
+        description: result.error,
+      });
+    } else if (result.data?.taglines) {
+      setTaglines(result.data.taglines);
+    } else {
       toast({
         variant: 'destructive',
         title: 'An error occurred.',
-        description: (error as Error).message,
+        description: 'Received an unexpected response from the server.',
       });
-    } finally {
-      setLoading(false);
     }
+    setLoading(false);
   }
 
   return (

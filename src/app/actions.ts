@@ -4,13 +4,17 @@ import { generateTaglines, GenerateTaglinesInput, GenerateTaglinesOutput } from 
 
 export async function handleGenerateTaglines(
   input: GenerateTaglinesInput
-): Promise<GenerateTaglinesOutput> {
+): Promise<{ data: GenerateTaglinesOutput | null; error: string | null }> {
   try {
     const result = await generateTaglines(input);
-    return result;
+    return { data: result, error: null };
   } catch (error) {
     console.error('Error generating taglines:', error);
-    // In a real app, you might want to return a more structured error
-    throw new Error('An unexpected error occurred while generating taglines.');
+    // In production, Next.js hides specific error messages.
+    // This custom message provides a better hint about potential configuration issues.
+    return { 
+      data: null, 
+      error: 'An error occurred while connecting to the AI service. This may be due to a configuration issue (e.g., a missing API key). Please contact the site administrator.' 
+    };
   }
 }
