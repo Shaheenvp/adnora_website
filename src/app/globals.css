@@ -62,7 +62,7 @@
     scroll-behavior: smooth;
   }
   section {
-    @apply w-full py-12 md:py-24 lg:py-32;
+    @apply w-full py-16 md:py-20 lg:py-24;
   }
 }
 

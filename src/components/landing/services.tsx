@@ -32,7 +32,7 @@ export function Services() {
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Our Services</div>
             <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl">What We Do Best</h2>
-            <p className="max-w-[900px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[900px] text-foreground/80 md:text-lg">
               We provide a comprehensive suite of digital services designed to help your business thrive in the online world.
             </p>
           </div>

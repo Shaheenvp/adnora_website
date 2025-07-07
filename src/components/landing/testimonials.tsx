@@ -31,7 +31,7 @@ export function Testimonials() {
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Testimonials</div>
             <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl">What Our Clients Say</h2>
-            <p className="max-w-[900px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[900px] text-foreground/80 md:text-lg">
               We pride ourselves on building strong relationships and delivering results. Here&apos;s what our partners have to say.
             </p>
           </div>

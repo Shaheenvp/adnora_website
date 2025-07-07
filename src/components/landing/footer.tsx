@@ -19,7 +19,7 @@ export function Footer() {
   return (
     <footer className="bg-card border-t">
       <div className="container mx-auto px-4 py-12 md:px-6">
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-8 md:gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" aria-label="Adnora Home" className="mb-4 inline-block">
               <Logo />

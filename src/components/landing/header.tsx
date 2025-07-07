@@ -2,10 +2,16 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet';
 
 const navLinks = [
   { href: '#services', label: 'Services' },
@@ -16,7 +22,6 @@ const navLinks = [
 ];
 
 export function Header() {
-  const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -35,7 +40,7 @@ export function Header() {
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2" aria-label="Adnora Home">
+        <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Adnora Home">
           <Logo className="h-14" />
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
@@ -52,37 +57,35 @@ export function Header() {
             <Link href="#contact">Contact Us</Link>
           </Button>
         </nav>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </Button>
-      </div>
-      {isOpen && (
         <div className="md:hidden">
-          <div className="container mx-auto flex flex-col items-center gap-6 px-4 pb-8 md:px-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-lg font-medium text-foreground transition-colors hover:text-primary"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button asChild className="w-full">
-              <Link href="#contact" onClick={() => setIsOpen(false)}>
-                Contact Us
-              </Link>
-            </Button>
-          </div>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Toggle menu">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <div className="p-4">
+                <Link href="/" className="mb-8 inline-block">
+                  <Logo className="h-12" />
+                </Link>
+                <nav className="flex flex-col items-start gap-6">
+                  {[...navLinks, { href: '#contact', label: 'Contact' }].map((link) => (
+                    <SheetClose key={link.href} asChild>
+                      <Link
+                        href={link.href}
+                        className="text-lg font-medium text-foreground transition-colors hover:text-primary"
+                      >
+                        {link.label}
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-      )}
+      </div>
     </header>
   );
 }

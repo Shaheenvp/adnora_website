@@ -34,7 +34,7 @@ export function Blog() {
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Insights</div>
             <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl">Digital Marketing Insights From Our Blog</h2>
-            <p className="max-w-[900px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[900px] text-foreground/80 md:text-lg">
               Stay ahead of the curve with the latest news, trends, and insights from the world of digital marketing.
             </p>
           </div>

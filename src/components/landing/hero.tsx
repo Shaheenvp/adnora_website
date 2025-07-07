@@ -4,12 +4,11 @@ import { Button } from '@/components/ui/button';
 export function Hero() {
   return (
     <section className="relative w-full py-20 md:py-32 lg:py-40">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/80 z-0"></div>
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       <div className="container relative z-10 px-4 md:px-6">
         <div className="flex flex-col items-center space-y-8 text-center">
-          <div className="space-y-6 max-w-3xl">
-            <h1 className="text-4xl font-headline font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 sm:text-5xl md:text-6xl lg:text-7xl">
+          <div className="space-y-6 max-w-4xl">
+            <h1 className="text-4xl font-headline font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 sm:text-5xl md:text-6xl">
               Crafting Digital Experiences That Convert
             </h1>
             <p className="text-lg text-foreground/80 md:text-xl">

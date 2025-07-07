@@ -84,7 +84,7 @@ export function TaglineGenerator() {
               <Sparkles className="h-4 w-4" /> AI-Powered
             </div>
             <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl">Generate Your Next Big Idea</h2>
-            <p className="max-w-[900px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[900px] text-foreground/80 md:text-lg">
               Use our AI-powered tool to generate catchy taglines for your brand or project.
             </p>
           </div>

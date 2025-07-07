@@ -25,7 +25,7 @@ export function Clients() {
             <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-4xl">
               Trusted By The Best
             </h2>
-            <p className="max-w-[900px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[900px] text-foreground/80 md:text-lg">
               We&apos;ve had the privilege of working with a diverse range of clients, from startups to established enterprises.
             </p>
           </div>

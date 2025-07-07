@@ -43,7 +43,7 @@ export function Portfolio() {
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Our Work</div>
             <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl">Our Digital Marketing & Web Development Portfolio</h2>
-            <p className="max-w-[900px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="max-w-[900px] text-foreground/80 md:text-lg">
               Explore our portfolio of recent projects and see how we've helped businesses like yours succeed.
             </p>
           </div>

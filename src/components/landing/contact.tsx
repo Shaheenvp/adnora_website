@@ -13,7 +13,7 @@ export function Contact() {
             <CardHeader className="text-center">
               <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary mb-2">Get In Touch</div>
               <CardTitle className="text-3xl font-bold font-headline">Let&apos;s Build Something Amazing</CardTitle>
-              <CardDescription className="text-foreground/80 md:text-xl">
+              <CardDescription className="text-foreground/80 md:text-lg">
                 Have a project in mind or just want to say hello? Drop us a line.
               </CardDescription>
             </CardHeader>
