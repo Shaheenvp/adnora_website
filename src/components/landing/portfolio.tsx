@@ -27,7 +27,7 @@ const portfolioItems = [
   {
     title: 'Meta Ads Campaign for E-commerce',
     category: 'Meta Ads',
-    image: 'https://placehold.co/600x400',
+    image: 'https://images.unsplash.com/photo-1706879349328-4a05bb3e16ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtZXRhfGVufDB8fHx8MTc1MzYxMDg4M3ww&ixlib=rb-4.1.0&q=80&w=1080',
     dataAiHint: 'social media feed',
     description: 'Generated a 5X return on ad spend (ROAS) for a new fashion brand using targeted video ads.',
     link: '#',
