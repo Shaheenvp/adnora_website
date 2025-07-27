@@ -35,7 +35,7 @@ const portfolioItems = [
   {
     title: 'Viral Blog Content Series',
     category: 'Content Marketing',
-    image: 'https://placehold.co/600x400',
+    image: 'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxibG9nfGVufDB8fHx8MTc1MzYxMTAyNXww&ixlib=rb-4.1.0&q=80&w=1080',
     dataAiHint: 'writing on laptop',
     description: 'Developed a blog series that attracted over 1 million readers and thousands of backlinks.',
     link: '#',
