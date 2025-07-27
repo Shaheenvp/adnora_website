@@ -12,7 +12,6 @@ const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
   { href: '#portfolio', label: 'Work' },
-  { href: '#pricing', label: 'Pricing' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -37,9 +36,9 @@ export function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Adnora Home">
-          <Logo className="h-14 w-auto" />
+          <Logo className="h-16 w-auto" />
         </Link>
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center justify-end gap-6 md:flex flex-1">
           <nav className="hidden items-center gap-6 md:flex">
             {navLinks.map((link) => (
               <Link

@@ -4,7 +4,6 @@ import { About } from '@/components/landing/about';
 import { Services } from '@/components/landing/services';
 import { Workflow } from '@/components/landing/workflow';
 import { Portfolio } from '@/components/landing/portfolio';
-import { Pricing } from '@/components/landing/pricing';
 import { WhyUs } from '@/components/landing/why-us';
 import { Contact } from '@/components/landing/contact';
 import { Footer } from '@/components/landing/footer';
@@ -20,7 +19,6 @@ export default function Home() {
         <Services />
         <Workflow />
         <Portfolio />
-        <Pricing />
         <WhyUs />
         <Testimonials />
         <Contact />
