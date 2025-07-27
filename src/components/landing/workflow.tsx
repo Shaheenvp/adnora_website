@@ -80,7 +80,7 @@ const useIntersectionObserver = (options: IntersectionObserverInit) => {
 
 const WorkflowStep = ({ step, index }: { step: (typeof steps)[0], index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { entries, observe } = useIntersectionObserver({ threshold: 0.5, triggerOnce: true });
+  const { entries, observe } = useIntersectionObserver({ threshold: 0.5 });
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -165,18 +165,15 @@ export function Workflow() {
   return (
     <section id="workflow" className="bg-secondary/30">
       <div ref={containerRef} className="container px-4 md:px-6">
-        <div className="sticky top-0 py-16 bg-secondary/30 backdrop-blur-sm z-20">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">Our Process</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">The Blueprint to Your Success</h2>
-                <p className="max-w-[900px] text-foreground/80 md:text-lg">
-                  Our proven workflow ensures every project is strategic, transparent, and built for results.
-                </p>
-              </div>
-            </div>
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <div className="space-y-2">
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">Our Process</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">The Blueprint to Your Success</h2>
+            <p className="max-w-[900px] text-foreground/80 md:text-lg">
+              Our proven workflow ensures every project is strategic, transparent, and built for results.
+            </p>
+          </div>
         </div>
-
         <div className="relative max-w-5xl mx-auto mt-8">
           <div className="absolute left-1/2 top-0 h-full w-0.5 bg-primary/20 -translate-x-1/2"></div>
           <div ref={lineRef} className="absolute left-1/2 top-0 w-0.5 bg-primary -translate-x-1/2" style={{height: 0}}></div>
