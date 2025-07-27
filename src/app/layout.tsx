@@ -1,26 +1,20 @@
 import type { Metadata } from 'next';
-import { Roboto, Poppins } from 'next/font/google';
+import { Manrope } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { WhatsAppFAB } from '@/components/whatsapp-fab';
 
-const roboto = Roboto({
+const manrope = Manrope({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-roboto',
-});
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['600', '700', '900'],
-  variable: '--font-poppins',
+  weight: ['400', '500', '700', '800'],
+  variable: '--font-manrope',
 });
 
 export const metadata: Metadata = {
-  title: 'Adnora Productions | Digital Marketing & Web Development Agency',
-  description: 'Adnora Productions is a full-service digital marketing agency in India, specializing in SEO, content creation, branding, and web & app development. We craft digital experiences that drive growth and convert visitors into customers.',
-  keywords: 'digital marketing, seo, content creation, branding, web development, app development, social media marketing, marketing agency, Adnora Productions, Kerala, India',
+  title: 'Adnora Productions | Crafting Digital Legacies',
+  description: 'Adnora Productions is a futuristic digital marketing agency specializing in content marketing, SEO, social media, performance marketing, and video production. We build legacies, not just campaigns.',
+  keywords: 'digital marketing, content marketing, SEO, SMM, PPC, performance marketing, video production, branding, web development, Adnora Productions, Kerala, India',
   icons: {
     icon: '/logo.svg',
   },
@@ -33,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={cn('font-body antialiased', roboto.variable, poppins.variable)}>
+      <body className={cn('font-body bg-background antialiased', manrope.variable)}>
         {children}
         <Toaster />
         <WhatsAppFAB />

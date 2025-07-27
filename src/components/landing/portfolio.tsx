@@ -1,82 +1,104 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
 
 const portfolioItems = [
   {
-    title: 'E-commerce Platform Overhaul',
-    category: 'Web Development',
+    title: 'SEO Growth for Tech Startup',
+    category: 'SEO',
     image: 'https://placehold.co/600x400',
-    dataAiHint: 'modern website layout',
+    dataAiHint: 'analytics graph growth',
+    description: 'Achieved a 300% increase in organic traffic through strategic keyword targeting and technical SEO.',
     link: '#',
   },
   {
-    title: 'SaaS Company Rebranding',
-    category: 'Branding',
+    title: 'Meta Ads Campaign for E-commerce',
+    category: 'Meta Ads',
     image: 'https://placehold.co/600x400',
-    dataAiHint: 'corporate brand guide',
+    dataAiHint: 'social media feed',
+    description: 'Generated a 5X return on ad spend (ROAS) for a new fashion brand using targeted video ads.',
     link: '#',
   },
   {
-    title: 'Viral Social Media Campaign',
-    category: 'Digital Marketing',
+    title: 'Viral Blog Content Series',
+    category: 'Content Marketing',
     image: 'https://placehold.co/600x400',
-    dataAiHint: 'marketing campaign chart',
+    dataAiHint: 'writing on laptop',
+    description: 'Developed a blog series that attracted over 1 million readers and thousands of backlinks.',
     link: '#',
   },
   {
-    title: 'Corporate Video Series',
-    category: 'Content Creation',
+    title: 'Brand Video for a Cause',
+    category: 'Video Production',
     image: 'https://placehold.co/600x400',
-    dataAiHint: 'film production set',
+    dataAiHint: 'cinematic video still',
+    description: 'Produced an award-winning documentary short that drove brand awareness and social impact.',
     link: '#',
   },
 ];
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="bg-card">
+    <section id="portfolio" className="bg-background/50">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Our Work</div>
-            <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl">Our Digital Marketing & Web Development Portfolio</h2>
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">Case Studies</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Proof in Performance</h2>
             <p className="max-w-[900px] text-foreground/80 md:text-lg">
-              Explore our portfolio of recent projects and see how we've helped businesses like yours succeed.
+              We don't just talk the talk. Explore our portfolio of recent projects and see the results for yourself.
             </p>
           </div>
         </div>
-        <div className="mx-auto grid gap-8 py-12 md:grid-cols-2">
-          {portfolioItems.map((item) => (
-            <Link key={item.title} href={item.link} className="group block">
-              <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
-                <CardHeader className="p-0">
-                  <div className="overflow-hidden aspect-video">
-                    <Image
-                      src={item.image}
-                      alt={`Portfolio item: ${item.title}`}
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                      data-ai-hint={item.dataAiHint}
-                    />
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent>
+            {portfolioItems.map((item) => (
+              <CarouselItem key={item.title} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <div className="group block glass-card overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
+                    <div className="overflow-hidden aspect-video relative">
+                      <Image
+                        src={item.image}
+                        alt={`Portfolio item: ${item.title}`}
+                        width={600}
+                        height={400}
+                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                        data-ai-hint={item.dataAiHint}
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <Badge variant="outline" className="mb-2 w-fit">{item.category}</Badge>
+                      <h3 className="font-bold text-xl mb-2">{item.title}</h3>
+                      <p className="text-foreground/80 text-sm flex-grow">{item.description}</p>
+                    </div>
+                    <div className="p-6 pt-0 mt-4">
+                        <Link href={item.link} className="text-sm text-primary flex items-center gap-1 font-semibold">
+                            View Case Study <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
+                        </Link>
+                    </div>
                   </div>
-                </CardHeader>
-                <CardContent className="p-6 flex-grow">
-                  <Badge variant="outline" className="mb-2">{item.category}</Badge>
-                  <CardTitle className="font-headline text-xl group-hover:text-primary transition-colors">{item.title}</CardTitle>
-                </CardContent>
-                <CardFooter className="p-6 pt-0">
-                    <span className="text-sm text-primary flex items-center gap-1">
-                        View Case Study <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
-                    </span>
-                </CardFooter>
-              </Card>
-            </Link>
-          ))}
-        </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden sm:flex" />
+          <CarouselNext className="hidden sm:flex" />
+        </Carousel>
       </div>
     </section>
   );

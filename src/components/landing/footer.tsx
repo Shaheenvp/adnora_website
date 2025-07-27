@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -10,12 +9,10 @@ import { Separator } from '@/components/ui/separator';
 import {useEffect, useState} from 'react';
 
 const navLinks = [
+    { href: '#about', label: 'About' },
     { href: '#services', label: 'Services' },
-    { href: '#content-marketing', label: 'Content Marketing' },
-    { href: '#portfolio', label: 'Portfolio' },
-    { href: '#testimonials', label: 'Testimonials' },
-    { href: '#clients', label: 'Clients' },
-    { href: '#blog', label: 'Blog' },
+    { href: '#portfolio', label: 'Work' },
+    { href: '#pricing', label: 'Pricing' },
     { href: '#contact', label: 'Contact' },
 ];
 
@@ -27,20 +24,20 @@ export function Footer() {
   }, []);
   
   return (
-    <footer className="bg-card border-t">
+    <footer className="bg-secondary/50 border-t border-white/10">
       <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-8 md:gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" aria-label="Adnora Home" className="mb-4 inline-block">
-              <Logo />
+              <Logo className="h-14"/>
             </Link>
             <p className="text-foreground/80 max-w-sm">
-              Crafting Digital Experiences That Convert. We are a full-service digital agency driving growth through innovative marketing strategies.
+              Crafting Legacies, Not Just Campaigns.
             </p>
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="text-lg font-semibold mb-4 font-headline">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -56,7 +53,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="text-lg font-semibold mb-4 font-headline">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-4 text-foreground/80">
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
@@ -70,7 +67,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="text-lg font-semibold mb-4 font-headline">Stay Updated</h3>
+            <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
             <p className="text-foreground/80 mb-4">Subscribe to our newsletter for the latest insights.</p>
             <form className="flex gap-2">
               <Input type="email" placeholder="Your Email" className="flex-1 bg-background" aria-label="Email for newsletter"/>
@@ -79,7 +76,7 @@ export function Footer() {
           </div>
         </div>
 
-        <Separator className="my-8 bg-border" />
+        <Separator className="my-8 bg-white/10" />
 
         <div className="flex flex-col-reverse items-center justify-between gap-6 md:flex-row">
           <p className="text-sm text-foreground/60">&copy; {year} Adnora Productions. All rights reserved.</p>

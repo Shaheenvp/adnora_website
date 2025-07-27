@@ -3,24 +3,37 @@ import { Button } from '@/components/ui/button';
 
 export function Hero() {
   return (
-    <section className="relative w-full py-20 md:py-32 lg:py-40">
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+    <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center text-center overflow-hidden">
+      <div className="absolute inset-0 bg-black">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          poster="https://placehold.co/1920x1080"
+        >
+          {/* Replace with actual video file */}
+          <source src="/liquid-background.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
+      </div>
       <div className="container relative z-10 px-4 md:px-6">
-        <div className="flex flex-col items-center space-y-8 text-center">
+        <div className="flex flex-col items-center space-y-8">
           <div className="space-y-6 max-w-4xl">
-            <h1 className="text-4xl font-headline font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 sm:text-5xl md:text-6xl">
-              Crafting Digital Experiences That Convert
+            <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-neutral-300 to-primary/80 sm:text-6xl md:text-7xl">
+              Crafting Legacies, Not Just Campaigns.
             </h1>
-            <p className="text-lg text-foreground/80 md:text-xl">
-              We are Adnora Productions, a full-service digital agency specializing in building powerful brands and driving growth through innovative marketing strategies.
+            <p className="text-lg text-foreground/80 md:text-xl max-w-2xl mx-auto">
+              We are a futuristic digital marketing agency engineering growth through disruptive strategies and compelling creative.
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row justify-center">
-            <Button asChild size="lg">
-              <Link href="#portfolio">View Our Work</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="#contact">Get a Free Quote</Link>
+            <Button asChild size="lg" className="group relative">
+              <Link href="#contact">
+                Let's Build Your Legacy
+                <span className="absolute top-0 left-0 w-full h-full rounded-md bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping" style={{animationDuration: '1.5s'}}></span>
+              </Link>
             </Button>
           </div>
         </div>

@@ -1,26 +1,35 @@
-import { Megaphone, PenSquare, Gem, Codepen } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Megaphone, Search, PenSquare, BarChart, Video, Users } from 'lucide-react';
 
 const services = [
   {
-    icon: <Megaphone className="h-12 w-12 text-primary" />,
-    title: 'Digital Marketing',
-    description: 'Elevate your reach with data-driven SEO, SEM, and social media campaigns that deliver measurable results.',
+    icon: <PenSquare className="h-10 w-10 mb-4 text-primary" />,
+    title: 'Content Marketing',
+    description: 'Engage and convert with high-value content that builds authority and drives organic traffic.',
   },
   {
-    icon: <PenSquare className="h-12 w-12 text-primary" />,
-    title: 'Content Creation',
-    description: 'Engage your audience with compelling blog posts, stunning visuals, and high-quality video production.',
+    icon: <Search className="h-10 w-10 mb-4 text-primary" />,
+    title: 'SEO & Website Management',
+    description: 'Climb search rankings and optimize your digital hub for performance and user experience.',
   },
   {
-    icon: <Gem className="h-12 w-12 text-primary" />,
-    title: 'Branding',
-    description: 'Forge a powerful brand identity with our strategic approach to logo design, messaging, and market positioning.',
+    icon: <Users className="h-10 w-10 mb-4 text-primary" />,
+    title: 'Social Media Strategy',
+    description: 'Build and nurture communities on platforms where your audience lives, breathes, and engages.',
   },
   {
-    icon: <Codepen className="h-12 w-12 text-primary" />,
-    title: 'Web & App Development',
-    description: 'Build robust, scalable, and beautiful websites and mobile applications that provide seamless user experiences.',
+    icon: <BarChart className="h-10 w-10 mb-4 text-primary" />,
+    title: 'Performance Marketing',
+    description: 'Maximize ROI with data-driven PPC, Meta Ads, and Google Ads campaigns that deliver results.',
+  },
+  {
+    icon: <Video className="h-10 w-10 mb-4 text-primary" />,
+    title: 'Video & Graphics Production',
+    description: 'Capture attention with stunning visuals, from viral-ready videos to compelling graphic design.',
+  },
+  {
+    icon: <Megaphone className="h-10 w-10 mb-4 text-primary" />,
+    title: 'Lead Generation',
+    description: 'Fuel your sales pipeline with qualified leads generated through targeted, multi-channel strategies.',
   },
 ];
 
@@ -28,26 +37,22 @@ export function Services() {
   return (
     <section id="services" className="bg-background">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Our Services</div>
-            <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl">What We Do Best</h2>
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">Our Expertise</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Arsenal of Services</h2>
             <p className="max-w-[900px] text-foreground/80 md:text-lg">
-              We provide a comprehensive suite of digital services designed to help your business thrive in the online world.
+              We provide a comprehensive suite of digital services designed to build, engage, and convert.
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl items-start gap-8 py-12 sm:grid-cols-2 md:gap-12 lg:max-w-none">
+        <div className="mx-auto grid max-w-7xl items-start gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <Card key={service.title} className="group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
-              <CardHeader className="flex flex-row items-center gap-4 p-6">
-                {service.icon}
-                <CardTitle className="font-headline text-2xl">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="p-6 pt-0">
-                <p className="text-foreground/80">{service.description}</p>
-              </CardContent>
-            </Card>
+            <div key={service.title} className="glass-card group p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-primary/50">
+              <div className="flex justify-center">{service.icon}</div>
+              <h3 className="font-bold text-xl mb-2">{service.title}</h3>
+              <p className="text-foreground/80">{service.description}</p>
+            </div>
           ))}
         </div>
       </div>

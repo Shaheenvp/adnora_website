@@ -1,28 +1,28 @@
 import { Header } from '@/components/landing/header';
 import { Hero } from '@/components/landing/hero';
+import { About } from '@/components/landing/about';
 import { Services } from '@/components/landing/services';
-import { ContentMarketing } from '@/components/landing/content-marketing';
+import { Workflow } from '@/components/landing/workflow';
 import { Portfolio } from '@/components/landing/portfolio';
-import { Testimonials } from '@/components/landing/testimonials';
-import { Clients } from '@/components/landing/clients';
-import { TaglineGenerator } from '@/components/landing/tagline-generator';
-import { Blog } from '@/components/landing/blog';
+import { Pricing } from '@/components/landing/pricing';
+import { WhyUs } from '@/components/landing/why-us';
 import { Contact } from '@/components/landing/contact';
 import { Footer } from '@/components/landing/footer';
+import { Testimonials } from '@/components/landing/testimonials';
 
 export default function Home() {
   return (
-    <div className="flex min-h-[100dvh] flex-col">
+    <div className="flex min-h-[100dvh] flex-col bg-background">
       <Header />
       <main className="flex-1">
         <Hero />
+        <About />
         <Services />
-        <ContentMarketing />
+        <Workflow />
         <Portfolio />
+        <Pricing />
+        <WhyUs />
         <Testimonials />
-        <Clients />
-        <TaglineGenerator />
-        <Blog />
         <Contact />
       </main>
       <Footer />
