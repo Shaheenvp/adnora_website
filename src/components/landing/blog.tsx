@@ -24,6 +24,16 @@ const blogPosts = [
     date: 'April 10, 2024',
     link: '#',
   },
+  {
+    title: 'How to Master Content Marketing in 2024',
+    image: 'https://images.unsplash.com/photo-1516655855035-d5215bcb5604?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb250ZW50JTIwY3JlYXRpb258ZW58MHx8fHwxNzUzNjExNTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    dataAiHint: 'content creation',
+    excerpt: 'Content is king, but how do you wear the crown? Here are our top strategies for creating content that converts...',
+    author: 'Alex Johnson',
+    authorAvatar: 'https://placehold.co/40x40',
+    date: 'April 20, 2024',
+    link: '#',
+  },
 ];
 
 export function Blog() {
@@ -39,7 +49,7 @@ export function Blog() {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl gap-8 py-12 sm:grid-cols-1 md:grid-cols-2">
+        <div className="mx-auto grid max-w-5xl gap-8 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post) => (
             <Link key={post.title} href={post.link} className="group block">
               <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
