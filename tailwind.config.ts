@@ -80,22 +80,28 @@ export default {
           },
         },
         'gradient-pan': {
-          '0%': {
-            'background-position': '0% 50%',
-          },
-          '50%': {
-            'background-position': '100% 50%',
-          },
-          '100%': {
-            'background-position': '0% 50%',
-          },
+            '0%': {
+                'background-position': '0% 50%',
+            },
+            '25%': {
+                'background-position': '100% 0%',
+            },
+            '50%': {
+                'background-position': '100% 100%',
+            },
+            '75%': {
+                'background-position': '0% 100%',
+            },
+            '100%': {
+                'background-position': '0% 50%',
+            },
         },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 0.8s ease-out both',
-        'gradient-pan': 'gradient-pan 3s ease-in-out infinite',
+        'gradient-pan': 'gradient-pan 10s ease-in-out infinite',
       },
     },
   },
