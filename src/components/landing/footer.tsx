@@ -1,9 +1,13 @@
+
+'use client';
+
 import Link from 'next/link';
 import { Github, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import {useEffect, useState} from 'react';
 
 const navLinks = [
     { href: '#services', label: 'Services' },
@@ -16,6 +20,12 @@ const navLinks = [
 ];
 
 export function Footer() {
+  const [year, setYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+  
   return (
     <footer className="bg-card border-t">
       <div className="container mx-auto px-4 py-12 md:px-6">
@@ -72,7 +82,7 @@ export function Footer() {
         <Separator className="my-8 bg-border" />
 
         <div className="flex flex-col-reverse items-center justify-between gap-6 md:flex-row">
-          <p className="text-sm text-foreground/60">&copy; {new Date().getFullYear()} Adnora Productions. All rights reserved.</p>
+          <p className="text-sm text-foreground/60">&copy; {year} Adnora Productions. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link href="https://www.instagram.com/adnora.in" aria-label="Instagram">
               <Instagram className="h-6 w-6 text-foreground/60 transition-colors hover:text-primary" />
