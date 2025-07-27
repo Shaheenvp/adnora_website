@@ -5,22 +5,11 @@ export function Hero() {
   return (
     <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 bg-black">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-          poster="https://placehold.co/1920x1080"
-        >
-          {/* Replace with actual video file */}
-          <source src="/liquid-background.mp4" type="video/mp4" />
-        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
       </div>
       <div className="container relative z-10 px-4 md:px-6">
         <div className="flex flex-col items-center space-y-8">
-          <div className="space-y-6 max-w-4xl">
+          <div className="space-y-6 max-w-4xl animate-fade-in-up">
             <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-neutral-300 to-primary/80 sm:text-6xl md:text-7xl">
               Crafting Legacies, Not Just Campaigns.
             </h1>
@@ -28,7 +17,7 @@ export function Hero() {
               We are a futuristic digital marketing agency engineering growth through disruptive strategies and compelling creative.
             </p>
           </div>
-          <div className="flex flex-col gap-4 sm:flex-row justify-center">
+          <div className="flex flex-col gap-4 sm:flex-row justify-center animate-fade-in-up animation-delay-300">
             <Button asChild size="lg" className="group relative">
               <Link href="#contact">
                 Let's Build Your Legacy
