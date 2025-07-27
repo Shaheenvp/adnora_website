@@ -12,7 +12,7 @@ const reasons = [
 export function WhyUs() {
   return (
     <section id="why-us" className="bg-secondary/30">
-      <div className="container px-4 md:px-6">
+      <div className="container px-8 md:px-16 lg:px-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">The Adnora Advantage</div>
