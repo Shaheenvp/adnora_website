@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
@@ -9,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import Autoplay from 'embla-carousel-autoplay';
 
 
 const portfolioItems = [
@@ -47,6 +51,10 @@ const portfolioItems = [
 ];
 
 export function Portfolio() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
+
   return (
     <section id="portfolio" className="bg-background/50">
       <div className="container px-4 md:px-6">
@@ -60,10 +68,13 @@ export function Portfolio() {
           </div>
         </div>
         <Carousel
+          plugins={[plugin.current]}
           opts={{
             align: "start",
             loop: true,
           }}
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
           className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent className="-ml-4">
