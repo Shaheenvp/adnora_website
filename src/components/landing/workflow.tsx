@@ -103,17 +103,18 @@ const WorkflowStep = ({ step, index }: { step: (typeof steps)[0], index: number 
       ref={ref}
       className={cn(
         "relative mb-12 flex items-center w-full",
-        isEven ? 'justify-start' : 'justify-end',
-        "transition-all duration-1000",
-        isVisible ? "opacity-100" : "opacity-0",
-        isEven ? (isVisible ? "animate-slide-in-right" : "translate-x-[-20px]") : (isVisible ? "animate-slide-in-left" : "translate-x-[20px]")
+        isEven ? 'justify-start' : 'justify-end'
       )}
     >
-      <div className={cn("absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-background border-2 border-primary rounded-full flex items-center justify-center z-10", isVisible ? 'scale-100' : 'scale-0', 'transition-transform duration-500 delay-300')}>
+      <div className={cn("absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-background border-2 border-primary rounded-full flex items-center justify-center z-10 transition-transform duration-500 delay-300", isVisible ? 'scale-100' : 'scale-0')}>
         <span className="text-primary font-bold">{index + 1}</span>
       </div>
 
-      <div className={cn("w-1/2", isEven ? 'pr-8' : 'pl-8')}>
+      <div className={cn("w-1/2 transition-all duration-1000",
+        isVisible ? "opacity-100" : "opacity-0",
+        isEven ? (isVisible ? "translate-x-0" : "-translate-x-10") : (isVisible ? "translate-x-0" : "translate-x-10"),
+        isEven ? 'pr-8' : 'pl-8'
+        )}>
         <div className={cn("glass-card p-6 group transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1", isEven ? 'text-right' : 'text-left')}>
           <div className={cn("flex items-center gap-4 mb-2", isEven ? 'justify-end' : 'justify-start')}>
              {!isEven && <div className="hidden sm:block">{step.icon}</div>}
@@ -139,14 +140,16 @@ export function Workflow() {
       const containerRect = containerRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
-      const start = containerRect.top + window.scrollY;
-      const end = containerRect.bottom + window.scrollY - viewportHeight;
+      // Calculate the start and end of the scroll animation
+      const scrollStart = containerRect.top + window.scrollY;
+      const scrollEnd = scrollStart + containerRect.height - viewportHeight;
+      
       const scrollPosition = window.scrollY;
-
+      
       let progress = 0;
-      if (scrollPosition > start && scrollPosition < end) {
-        progress = (scrollPosition - start) / (containerRect.height - viewportHeight);
-      } else if (scrollPosition >= end) {
+      if (scrollPosition > scrollStart && scrollPosition < scrollEnd) {
+        progress = (scrollPosition - scrollStart) / (containerRect.height - viewportHeight);
+      } else if (scrollPosition >= scrollEnd) {
         progress = 1;
       }
       
@@ -156,6 +159,7 @@ export function Workflow() {
         lineRef.current.style.height = `${progress * 100}%`;
       }
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
