@@ -43,7 +43,7 @@ const portfolioItems = [
   {
     title: 'Brand Video for a Cause',
     category: 'Video Production',
-    image: 'https://placehold.co/600x400',
+    image: 'https://images.unsplash.com/photo-1584224549374-995cbac1ab62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMnx8dmlkZW8lMjBwcm9kdWN0aW9ufGVufDB8fHx8MTc1MzYxMDY1MHww&ixlib=rb-4.1.0&q=80&w=1080',
     dataAiHint: 'cinematic video still',
     description: 'Produced an award-winning documentary short that drove brand awareness and social impact.',
     link: '#',
