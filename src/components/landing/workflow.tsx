@@ -1,30 +1,35 @@
-import { Rocket, Microscope, DraftingCompass, BarChart, Trophy } from 'lucide-react';
+import { Rocket, Microscope, DraftingCompass, BarChart, Trophy, Workflow as WorkflowIcon } from 'lucide-react';
 
 const steps = [
   {
-    icon: <Rocket className="h-8 w-8" />,
+    icon: <Rocket className="h-10 w-10 mb-4 text-primary" />,
     title: "Kick-off & Discovery",
     description: "We start by understanding your vision, objectives, and challenges. This is where we align on goals and set the stage for success."
   },
   {
-    icon: <Microscope className="h-8 w-8" />,
+    icon: <Microscope className="h-10 w-10 mb-4 text-primary" />,
     title: "Analysis & Research",
     description: "Our team conducts in-depth market, competitor, and audience research to uncover insights and identify opportunities."
   },
   {
-    icon: <DraftingCompass className="h-8 w-8" />,
+    icon: <DraftingCompass className="h-10 w-10 mb-4 text-primary" />,
     title: "Strategy & Planning",
     description: "We craft a bespoke, data-driven strategy tailored to your goals, outlining the channels, tactics, and KPIs for our campaign."
   },
   {
-    icon: <BarChart className="h-8 w-8" />,
+    icon: <BarChart className="h-10 w-10 mb-4 text-primary" />,
     title: "Execution & Optimization",
     description: "This is where the magic happens. We launch the campaign, continuously monitoring, testing, and optimizing for peak performance."
   },
   {
-    icon: <Trophy className="h-8 w-8" />,
+    icon: <Trophy className="h-10 w-10 mb-4 text-primary" />,
     title: "Reporting & Scaling",
     description: "You get transparent, detailed reports on performance. We analyze the results and identify opportunities to scale our success."
+  },
+  {
+    icon: <WorkflowIcon className="h-10 w-10 mb-4 text-primary" />,
+    title: "Continuous Growth",
+    description: "Our partnership doesn't end at reporting. We focus on long-term growth, adapting strategies to keep you ahead of the curve."
   }
 ];
 
@@ -42,24 +47,14 @@ export function Workflow() {
           </div>
         </div>
 
-        <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border/50" aria-hidden="true"></div>
-          <div className="relative flex flex-col gap-16">
-            {steps.map((step, index) => (
-              <div key={index} className="flex items-center w-full">
-                <div className={`flex-1 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                  <h3 className="text-xl font-bold text-primary mb-2">{`Step ${index + 1}: ${step.title}`}</h3>
-                  <p className="text-foreground/80">{step.description}</p>
-                </div>
-                <div className="absolute left-1/2 -translate-x-1/2 z-10">
-                    <div className="w-16 h-16 rounded-full glass-card border-primary/30 flex items-center justify-center text-primary">
-                        {step.icon}
-                    </div>
-                </div>
-                <div className="flex-1"></div>
-              </div>
-            ))}
-          </div>
+        <div className="mx-auto grid max-w-7xl items-start gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step) => (
+            <div key={step.title} className="glass-card group p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-primary/50">
+              <div className="flex justify-center">{step.icon}</div>
+              <h3 className="font-bold text-xl mb-2">{step.title}</h3>
+              <p className="text-foreground/80">{step.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
