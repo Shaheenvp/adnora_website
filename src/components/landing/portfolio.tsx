@@ -52,7 +52,7 @@ const portfolioItems = [
 
 export function Portfolio() {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
+    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: false })
   );
 
   return (
@@ -73,8 +73,6 @@ export function Portfolio() {
             align: "start",
             loop: true,
           }}
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
           className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent className="-ml-4">
