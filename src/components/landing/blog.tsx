@@ -27,7 +27,7 @@ const blogPosts = [
   },
   {
     title: 'How to Master Content Marketing in 2024',
-    image: 'https://images.unsplash.com/photo-1516655855035-d5215bcb5604?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb250ZW50JTIwY3JlYXRpb258ZW58MHx8fHwxNzUzNjExNTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://images.unsplash.com/photo-1664277497095-424e085175e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxM3x8Y29udGVudCUyMG1hcmtldGluZ3xlbnwwfHx8fDE3NTM2MTE1Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080',
     dataAiHint: 'content creation',
     excerpt: 'Content is king, but how do you wear the crown? Here are our top strategies for creating content that converts...',
     author: 'Alex Johnson',
