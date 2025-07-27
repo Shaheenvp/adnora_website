@@ -115,7 +115,7 @@ export function Testimonials() {
                         "h-16 w-16 transition-all duration-300",
                         index === current ? "border-2 border-primary" : ""
                       )}>
-                        <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                        <AvatarImage src={`https://i.pravatar.cc/80?u=${testimonial.name}`} alt={testimonial.name} />
                         <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div>
