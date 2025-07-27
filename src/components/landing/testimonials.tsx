@@ -10,8 +10,10 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { cn } from '@/lib/utils';
 
 const testimonials = [
   {
@@ -32,11 +34,17 @@ const testimonials = [
     avatar: 'https://placehold.co/80x80',
     testimonial: "For anyone looking to build a strong digital presence, I can't recommend Adnora enough. Their web development and branding services gave our consultancy the professional edge we needed.",
   },
-    {
+  {
     name: 'Client Four',
     title: 'CEO, Tech Innovations',
     avatar: 'https://placehold.co/80x80',
     testimonial: "Their strategic approach to SEO and digital marketing doubled our organic traffic in just six months. An invaluable partner for growth.",
+  },
+  {
+    name: 'Client Five',
+    title: 'Marketing Head, Fashion Brand',
+    avatar: 'https://placehold.co/80x80',
+    testimonial: "The viral video campaign they produced was nothing short of spectacular. It exceeded all our KPIs and created a huge buzz online.",
   },
 ];
 
@@ -44,6 +52,28 @@ export function Testimonials() {
   const plugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
   );
+
+  const [api, setApi] = React.useState<CarouselApi>()
+  const [current, setCurrent] = React.useState(0)
+
+  React.useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    setCurrent(api.selectedScrollSnap())
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap())
+    }
+
+    api.on("select", onSelect)
+
+    return () => {
+      api.off("select", onSelect)
+    }
+  }, [api])
+
 
   return (
     <section id="testimonials" className="bg-background">
@@ -58,26 +88,33 @@ export function Testimonials() {
           </div>
         </div>
         <Carousel
+          setApi={setApi}
           plugins={[plugin.current]}
           opts={{
-            align: "start",
+            align: "center",
             loop: true,
           }}
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
-          className="w-full max-w-4xl mx-auto"
+          className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="md:basis-1/2">
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-4 h-full">
-                  <Card className="glass-card h-full flex flex-col justify-between p-8">
+                  <Card className={cn(
+                    "glass-card h-full flex flex-col justify-between p-8 transition-all duration-300",
+                    index === current ? "scale-105 border-primary shadow-2xl shadow-primary/20" : "scale-90 opacity-60"
+                  )}>
                     <CardContent className="p-0 flex-grow">
                       <Quote className="h-8 w-8 text-primary/50 mb-4" />
                       <p className="text-foreground/90 italic text-lg">"{testimonial.testimonial}"</p>
                     </CardContent>
                     <div className="flex items-center gap-4 mt-8">
-                      <Avatar className="h-16 w-16">
+                      <Avatar className={cn(
+                        "h-16 w-16 transition-all duration-300",
+                        index === current ? "border-2 border-primary" : ""
+                      )}>
                         <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
                         <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                       </Avatar>
