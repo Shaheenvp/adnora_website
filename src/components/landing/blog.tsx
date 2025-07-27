@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 const blogPosts = [
   {
     title: 'The Future of SEO in a Cookieless World',
-    image: 'https://placehold.co/600x400',
+    image: 'https://images.unsplash.com/photo-1594009754086-92bf4d86f059?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyMHx8ZnV0dXJlJTIwZGlnaXRhbCUyMHdvcmxkfGVufDB8fHx8MTc1MzYxMTIyMHww&ixlib=rb-4.1.0&q=80&w=1080',
     dataAiHint: 'search engine results',
     excerpt: 'As privacy regulations tighten, the digital marketing landscape is shifting. Here’s how to prepare your SEO strategy...',
     author: 'Jane Doe',
