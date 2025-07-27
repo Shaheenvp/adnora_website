@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 export function Hero() {
   return (
-    <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center text-center overflow-hidden">
+    <section className="relative w-full min-h-screen flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 bg-black">
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
       </div>
