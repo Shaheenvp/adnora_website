@@ -19,31 +19,31 @@ const testimonials = [
   {
     name: 'Samad',
     title: 'Owner, Madreena Kitchen',
-    avatar: 'https://placehold.co/80x80',
+    avatar: 'https://i.pravatar.cc/80?u=samad',
     testimonial: 'Adnora Productions took our restaurant from a local favorite to a digital sensation. Their content creation and marketing have been a game-changer for our business.',
   },
   {
     name: 'Noufal',
     title: 'Owner, Madreena Kitchen',
-    avatar: 'https://placehold.co/80x80',
+    avatar: 'https://i.pravatar.cc/80?u=noufal',
     testimonial: 'The team at Adnora is simply brilliant. They understand the food industry and how to make a brand stand out. Our online orders have soared since we started working with them.',
   },
   {
     name: 'Amjad',
     title: 'Founder, Edufy Overseas',
-    avatar: 'https://placehold.co/80x80',
+    avatar: 'https://i.pravatar.cc/80?u=amjad',
     testimonial: "For anyone looking to build a strong digital presence, I can't recommend Adnora enough. Their web development and branding services gave our consultancy the professional edge we needed.",
   },
   {
     name: 'Client Four',
     title: 'CEO, Tech Innovations',
-    avatar: 'https://placehold.co/80x80',
+    avatar: 'https://i.pravatar.cc/80?u=client-four',
     testimonial: "Their strategic approach to SEO and digital marketing doubled our organic traffic in just six months. An invaluable partner for growth.",
   },
   {
     name: 'Client Five',
     title: 'Marketing Head, Fashion Brand',
-    avatar: 'https://placehold.co/80x80',
+    avatar: 'https://i.pravatar.cc/80?u=client-five',
     testimonial: "The viral video campaign they produced was nothing short of spectacular. It exceeded all our KPIs and created a huge buzz online.",
   },
 ];
@@ -115,7 +115,7 @@ export function Testimonials() {
                         "h-16 w-16 transition-all duration-300",
                         index === current ? "border-2 border-primary" : ""
                       )}>
-                        <AvatarImage src={`https://i.pravatar.cc/80?u=${testimonial.name}`} alt={testimonial.name} />
+                        <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
                         <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div>
