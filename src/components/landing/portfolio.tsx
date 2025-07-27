@@ -66,10 +66,10 @@ export function Portfolio() {
           }}
           className="w-full max-w-6xl mx-auto"
         >
-          <CarouselContent>
+          <CarouselContent className="-ml-4">
             {portfolioItems.map((item) => (
-              <CarouselItem key={item.title} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
+              <CarouselItem key={item.title} className="md:basis-1/2 lg:basis-1/3 pl-4 flex">
+                <div className="p-1 w-full">
                   <div className="group block glass-card overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
                     <div className="overflow-hidden aspect-video relative">
                       <Image
