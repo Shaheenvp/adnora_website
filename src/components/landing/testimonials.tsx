@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import { Quote } from 'lucide-react';
@@ -7,7 +10,8 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const testimonials = [
   {
@@ -28,9 +32,19 @@ const testimonials = [
     avatar: 'https://placehold.co/80x80',
     testimonial: "For anyone looking to build a strong digital presence, I can't recommend Adnora enough. Their web development and branding services gave our consultancy the professional edge we needed.",
   },
+    {
+    name: 'Client Four',
+    title: 'CEO, Tech Innovations',
+    avatar: 'https://placehold.co/80x80',
+    testimonial: "Their strategic approach to SEO and digital marketing doubled our organic traffic in just six months. An invaluable partner for growth.",
+  },
 ];
 
 export function Testimonials() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
+
   return (
     <section id="testimonials" className="bg-background">
       <div className="container px-4 md:px-6">
@@ -44,16 +58,19 @@ export function Testimonials() {
           </div>
         </div>
         <Carousel
+          plugins={[plugin.current]}
           opts={{
             align: "start",
             loop: true,
           }}
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
           className="w-full max-w-4xl mx-auto"
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="md:basis-1/2">
-                <div className="p-4">
+                <div className="p-4 h-full">
                   <Card className="glass-card h-full flex flex-col justify-between p-8">
                     <CardContent className="p-0 flex-grow">
                       <Quote className="h-8 w-8 text-primary/50 mb-4" />
