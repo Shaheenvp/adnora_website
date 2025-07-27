@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const blogPosts = [
   {
@@ -49,39 +50,55 @@ export function Blog() {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl gap-8 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post) => (
-            <Link key={post.title} href={post.link} className="group block">
-              <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
-                <CardHeader className="p-0">
-                  <div className="aspect-video overflow-hidden">
-                    <Image
-                      src={post.image}
-                      alt={`Blog post: ${post.title}`}
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                      data-ai-hint={post.dataAiHint}
-                    />
+        <div className="py-12">
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            className="w-full max-w-6xl mx-auto"
+          >
+            <CarouselContent className="-ml-4">
+              {blogPosts.map((post) => (
+                <CarouselItem key={post.title} className="md:basis-1/2 lg:basis-1/3 pl-4 flex">
+                  <div className="p-1 w-full">
+                    <Link href={post.link} className="group block h-full">
+                      <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
+                        <CardHeader className="p-0">
+                          <div className="aspect-video overflow-hidden">
+                            <Image
+                              src={post.image}
+                              alt={`Blog post: ${post.title}`}
+                              width={600}
+                              height={400}
+                              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                              data-ai-hint={post.dataAiHint}
+                            />
+                          </div>
+                        </CardHeader>
+                        <CardContent className="p-6 flex-grow">
+                          <CardTitle className="font-headline text-xl mb-2 group-hover:text-primary transition-colors">{post.title}</CardTitle>
+                          <p className="text-foreground/80 line-clamp-3">{post.excerpt}</p>
+                        </CardContent>
+                        <div className="p-6 pt-0 flex items-center gap-4">
+                          <Avatar>
+                            <AvatarImage src={post.authorAvatar} alt={post.author} />
+                            <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <p className="text-sm font-medium">{post.author}</p>
+                            <p className="text-sm text-foreground/60">{post.date}</p>
+                          </div>
+                        </div>
+                      </Card>
+                    </Link>
                   </div>
-                </CardHeader>
-                <CardContent className="p-6 flex-grow">
-                  <CardTitle className="font-headline text-xl mb-2 group-hover:text-primary transition-colors">{post.title}</CardTitle>
-                  <p className="text-foreground/80 line-clamp-3">{post.excerpt}</p>
-                </CardContent>
-                <div className="p-6 pt-0 flex items-center gap-4">
-                  <Avatar>
-                    <AvatarImage src={post.authorAvatar} alt={post.author} />
-                    <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="text-sm font-medium">{post.author}</p>
-                    <p className="text-sm text-foreground/60">{post.date}</p>
-                  </div>
-                </div>
-              </Card>
-            </Link>
-          ))}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex" />
+            <CarouselNext className="hidden sm:flex" />
+          </Carousel>
         </div>
       </div>
     </section>
