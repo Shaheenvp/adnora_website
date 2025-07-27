@@ -16,7 +16,7 @@ const blogPosts = [
   },
   {
     title: '5 Branding Mistakes That Are Costing You Customers',
-    image: 'https://placehold.co/600x400',
+    image: 'https://images.unsplash.com/photo-1613909207039-6b173b755cc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxicmFuZGluZ3xlbnwwfHx8fDE3NTM2MTEzMzZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
     dataAiHint: 'broken logo concept',
     excerpt: 'Your brand is more than just a logo. Avoid these common pitfalls to build a brand that resonates and retains...',
     author: 'John Smith',
