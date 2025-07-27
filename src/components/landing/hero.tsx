@@ -10,7 +10,7 @@ export function Hero() {
       <div className="container relative z-10 px-4 md:px-6">
         <div className="flex flex-col items-center space-y-8">
           <div className="space-y-6 max-w-4xl animate-fade-in-up">
-            <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-neutral-300 to-primary/80 sm:text-6xl md:text-7xl bg-[400%_400%] animate-gradient-pan">
+            <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-primary/80 to-white sm:text-6xl md:text-7xl bg-[200%_auto] animate-gradient-pan">
               Crafting Legacies, Not Just Campaigns.
             </h1>
             <p className="text-lg text-foreground/80 md:text-xl max-w-2xl mx-auto">
