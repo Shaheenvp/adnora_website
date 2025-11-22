@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
@@ -54,39 +54,119 @@ export function Portfolio() {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: false })
   );
+  const [mounted, setMounted] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const horizontalContainerRef = useRef<HTMLDivElement>(null);
+  const portfolioItemsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || !sectionRef.current || typeof window === 'undefined') return;
+
+    Promise.all([
+      import('gsap'),
+      import('gsap/ScrollTrigger'),
+    ]).then(([gsapModule, { ScrollTrigger }]) => {
+      const gsap = gsapModule.default;
+      gsap.registerPlugin(ScrollTrigger);
+
+      const ctx = gsap.context(() => {
+        // Title animation
+        if (titleRef.current) {
+          gsap.fromTo(
+            titleRef.current.children,
+            {
+              opacity: 0,
+              y: 80,
+              clipPath: 'inset(100% 0% 0% 0%)',
+            },
+            {
+              opacity: 1,
+              y: 0,
+              clipPath: 'inset(0% 0% 0% 0%)',
+              duration: 1.2,
+              ease: 'power4.out',
+              stagger: 0.1,
+              scrollTrigger: {
+                trigger: titleRef.current,
+                start: 'top 85%',
+              },
+            }
+          );
+        }
+
+        // Simple fade-in animations for portfolio items (no horizontal scroll)
+        if (portfolioItemsRef.current) {
+          const items = portfolioItemsRef.current.children;
+          
+          Array.from(items).forEach((item, index) => {
+            // Fade in items as they come into view
+            gsap.fromTo(
+              item,
+              {
+                opacity: 0,
+                y: 40,
+                scale: 0.95,
+              },
+              {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: item as HTMLElement,
+                  start: 'top 85%',
+                  toggleActions: 'play none none none',
+                },
+              }
+            );
+          });
+        }
+
+        return () => {
+          ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        };
+      }, sectionRef);
+
+      return () => ctx.revert();
+    });
+  }, [mounted]);
 
   return (
-    <section id="portfolio" className="bg-background/50">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">Case Studies</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Proof in Performance</h2>
-            <p className="max-w-[900px] text-foreground/80 md:text-lg">
+    <section ref={sectionRef} id="portfolio" className="bg-background/50 py-20 md:py-28 overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div ref={titleRef} className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-20">
+          <div className="space-y-3">
+            <div className="inline-block rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary">Case Studies</div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight" style={{ lineHeight: '1.2', paddingBottom: '0.5rem', overflow: 'visible' }}>Proof in Performance</h2>
+            <p className="max-w-2xl text-foreground/70 md:text-lg lg:text-xl mx-auto">
               We don't just talk the talk. Explore our portfolio of recent projects and see the results for yourself.
             </p>
           </div>
         </div>
-        <Carousel
-          plugins={[plugin.current]}
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-6xl mx-auto"
-        >
-          <CarouselContent className="-ml-4">
-            {portfolioItems.map((item) => (
-              <CarouselItem key={item.title} className="md:basis-1/2 lg:basis-1/3 pl-4 flex">
-                <div className="p-1 w-full">
+
+        {/* Grid Layout for Desktop */}
+        <div className="hidden lg:block">
+          <div ref={horizontalContainerRef} className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+            <div ref={portfolioItemsRef} className="contents">
+              {portfolioItems.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="group"
+                >
                   <div className="group block glass-card overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
-                    <div className="overflow-hidden aspect-video relative">
+                    <div className="overflow-hidden aspect-video relative image-container">
                       <Image
                         src={item.image}
                         alt={`Portfolio item: ${item.title}`}
                         width={600}
                         height={400}
-                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                         data-ai-hint={item.dataAiHint}
                       />
                     </div>
@@ -96,18 +176,61 @@ export function Portfolio() {
                       <p className="text-foreground/80 text-sm flex-grow">{item.description}</p>
                     </div>
                     <div className="p-6 pt-0 mt-4">
-                        <Link href={item.link} className="text-sm text-primary flex items-center gap-1 font-semibold">
-                            View Case Study <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
-                        </Link>
+                      <Link href={item.link} className="text-sm text-primary flex items-center gap-1 font-semibold">
+                        View Case Study <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
+                      </Link>
                     </div>
                   </div>
                 </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex" />
-          <CarouselNext className="hidden sm:flex" />
-        </Carousel>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Carousel for Mobile/Tablet */}
+        <div className="lg:hidden">
+          <Carousel
+            plugins={[plugin.current]}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-6xl mx-auto"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {portfolioItems.map((item) => (
+                <CarouselItem key={item.title} className="basis-full sm:basis-1/2 pl-2 md:pl-4 flex">
+                  <div className="p-1 w-full">
+                    <div className="group block glass-card overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
+                      <div className="overflow-hidden aspect-video relative image-container">
+                        <Image
+                          src={item.image}
+                          alt={`Portfolio item: ${item.title}`}
+                          width={600}
+                          height={400}
+                          className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                          data-ai-hint={item.dataAiHint}
+                        />
+                      </div>
+                      <div className="p-6 flex flex-col flex-grow">
+                        <Badge variant="outline" className="mb-2 w-fit">{item.category}</Badge>
+                        <h3 className="font-bold text-xl mb-2">{item.title}</h3>
+                        <p className="text-foreground/80 text-sm flex-grow">{item.description}</p>
+                      </div>
+                      <div className="p-6 pt-0 mt-4">
+                        <Link href={item.link} className="text-sm text-primary flex items-center gap-1 font-semibold">
+                          View Case Study <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex" />
+            <CarouselNext className="hidden sm:flex" />
+          </Carousel>
+        </div>
       </div>
     </section>
   );

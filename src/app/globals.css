@@ -47,9 +47,11 @@
     @apply bg-background text-foreground;
     min-height: 100vh;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   section {
-    @apply w-full py-20 md:py-28 lg:py-32;
+    @apply w-full;
+    overflow-x: hidden;
   }
 }
 
@@ -57,4 +59,67 @@
   .glass-card {
     @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl;
   }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-primary/90 to-white bg-clip-text text-transparent;
+  }
+  
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(111, 166, 31, 0.3);
+  }
+  
+  .glow-primary-lg {
+    box-shadow: 0 0 40px rgba(111, 166, 31, 0.4);
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Client logos scroll animation */
+  @keyframes scroll-logos {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-scroll-logos {
+    animation: scroll-logos 40s linear infinite;
+  }
+  
+  .animate-scroll-logos:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
 }

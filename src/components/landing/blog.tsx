@@ -39,18 +39,18 @@ const blogPosts = [
 
 export function Blog() {
   return (
-    <section id="blog" className="bg-background">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Insights</div>
-            <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl">Digital Marketing Insights From Our Blog</h2>
-            <p className="max-w-[900px] text-foreground/80 md:text-lg">
+    <section id="blog" className="bg-background py-20 md:py-28">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-20">
+          <div className="space-y-3">
+            <div className="inline-block rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary">Insights</div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight" style={{ lineHeight: '1.2', paddingBottom: '0.5rem', overflow: 'visible' }}>Digital Marketing Insights</h2>
+            <p className="max-w-2xl text-foreground/70 md:text-lg lg:text-xl mx-auto">
               Stay ahead of the curve with the latest news, trends, and insights from the world of digital marketing.
             </p>
           </div>
         </div>
-        <div className="py-12">
+        <div>
           <Carousel
             opts={{
               align: 'start',
@@ -58,9 +58,9 @@ export function Blog() {
             }}
             className="w-full max-w-6xl mx-auto"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-2 md:-ml-4">
               {blogPosts.map((post) => (
-                <CarouselItem key={post.title} className="md:basis-1/2 lg:basis-1/3 pl-4 flex">
+                <CarouselItem key={post.title} className="basis-full sm:basis-1/2 lg:basis-1/3 pl-2 md:pl-4 flex">
                   <div className="p-1 w-full">
                     <Link href={post.link} className="group block h-full">
                       <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">

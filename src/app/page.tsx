@@ -9,25 +9,26 @@ import { Contact } from '@/components/landing/contact';
 import { Footer } from '@/components/landing/footer';
 import { Testimonials } from '@/components/landing/testimonials';
 import { Blog } from '@/components/landing/blog';
-import { TaglineGenerator } from '@/components/landing/tagline-generator';
+import { SmoothScrollProvider } from '@/components/smooth-scroll-provider';
 
 export default function Home() {
   return (
-    <div className="flex min-h-[100dvh] flex-col bg-background">
-      <Header />
-      <main className="flex-1">
-        <Hero />
-        <About />
-        <Services />
-        <Workflow />
-        <Portfolio />
-        <WhyUs />
-        <Testimonials />
-        <TaglineGenerator />
-        <Blog />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <SmoothScrollProvider>
+      <div className="flex min-h-[100dvh] flex-col bg-background overflow-x-hidden">
+        <Header />
+        <main className="flex-1 overflow-x-hidden">
+          <Hero />
+          <About />
+          <Services />
+          <Workflow />
+          <Portfolio />
+          <WhyUs />
+          <Testimonials />
+          <Blog />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </SmoothScrollProvider>
   );
 }

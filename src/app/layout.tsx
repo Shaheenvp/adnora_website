@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { WhatsAppFAB } from '@/components/whatsapp-fab';
+import { ScrollProgressIndicator } from '@/components/scroll-progress-indicator';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -18,6 +19,11 @@ export const metadata: Metadata = {
   icons: {
     icon: '/logo.svg',
   },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
 };
 
 export default function RootLayout({
@@ -28,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={cn('font-body bg-background antialiased', manrope.variable)}>
+        <ScrollProgressIndicator />
         {children}
         <Toaster />
         <WhatsAppFAB />

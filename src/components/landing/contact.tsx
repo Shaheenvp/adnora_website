@@ -6,20 +6,20 @@ import { Mail, Phone } from 'lucide-react';
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-gradient-to-t from-background via-secondary to-secondary">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">Get In Touch</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Let's Build Your Legacy</h2>
-            <p className="max-w-[900px] text-foreground/80 md:text-lg">
+    <section id="contact" className="bg-gradient-to-t from-background via-secondary to-secondary py-20 md:py-28">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-20">
+          <div className="space-y-3">
+            <div className="inline-block rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary">Get In Touch</div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight" style={{ lineHeight: '1.2', paddingBottom: '0.5rem', overflow: 'visible' }}>Let's Build Your Legacy</h2>
+            <p className="max-w-2xl text-foreground/70 md:text-lg lg:text-xl mx-auto">
               Have a project in mind or just want to explore possibilities? We're here to listen.
             </p>
           </div>
         </div>
 
-        <div className="mx-auto max-w-5xl grid lg:grid-cols-2 gap-12">
-            <div className="space-y-8">
+        <div className="mx-auto max-w-5xl grid lg:grid-cols-2 gap-8 md:gap-10">
+            <div className="space-y-6 text-center lg:text-left">
                 <p className="text-foreground/80">
                     Fill out the form, or reach out to us via email or phone. We're excited to hear about your vision and discuss how we can bring it to life.
                 </p>

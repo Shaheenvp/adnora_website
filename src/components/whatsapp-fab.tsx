@@ -16,7 +16,7 @@ const WhatsAppIcon = () => (
 
 export function WhatsAppFAB() {
   return (
-    <Button asChild size="icon" className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-[#25D366] shadow-lg transition-transform duration-300 hover:scale-110 hover:bg-[#128C7E]">
+    <Button asChild size="icon" className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-[#25D366] shadow-lg transition-transform duration-300 hover:scale-110 hover:bg-[#128C7E]">
         <Link
           href="https://wa.me/919544453962"
           target="_blank"

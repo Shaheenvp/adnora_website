@@ -76,20 +76,20 @@ export function TaglineGenerator() {
   }
 
   return (
-    <section id="tagline-generator" className="bg-card">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary flex items-center gap-2">
+    <section id="tagline-generator" className="bg-card py-20 md:py-28">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-20">
+          <div className="space-y-3">
+            <div className="inline-block rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary flex items-center gap-2">
               <Sparkles className="h-4 w-4" /> AI-Powered
             </div>
-            <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl">Generate Your Next Big Idea</h2>
-            <p className="max-w-[900px] text-foreground/80 md:text-lg">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight" style={{ lineHeight: '1.2', paddingBottom: '0.5rem', overflow: 'visible' }}>Generate Your Next Big Idea</h2>
+            <p className="max-w-2xl text-foreground/70 md:text-lg lg:text-xl mx-auto">
               Use our AI-powered tool to generate catchy taglines for your brand or project.
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-4xl items-start gap-12 py-12 lg:grid-cols-2 lg:gap-16">
+        <div className="mx-auto grid max-w-4xl items-start gap-8 md:gap-10 lg:grid-cols-2">
           <div className="space-y-4">
             <h3 className="text-2xl font-bold font-headline">Tell Us About Your Brand</h3>
             <Form {...form}>
