@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: 'Adnora Productions is a futuristic digital marketing agency specializing in content marketing, SEO, social media, performance marketing, and video production. We build legacies, not just campaigns.',
   keywords: 'digital marketing, content marketing, SEO, SMM, PPC, performance marketing, video production, branding, web development, Adnora Productions, Kerala, India',
   icons: {
-    icon: '/logo.svg',
+    icon: '/icon.svg',
   },
   viewport: {
     width: 'device-width',

@@ -302,145 +302,124 @@ export function Hero() {
           );
         }
 
-        // Hover animations for title line 1 - Magnetic effect with rotation
+        // Simple and reliable hover animations that properly reset
+        const setupHoverAnimation = (
+          element: HTMLElement,
+          chars: HTMLSpanElement[],
+          onHover: (char: HTMLSpanElement, index: number) => void,
+          onLeave: (char: HTMLSpanElement) => void
+        ) => {
+          let isHovering = false;
+          
+          element.addEventListener('mouseenter', () => {
+            isHovering = true;
+            chars.forEach((char, index) => {
+              if (!char) return;
+              onHover(char, index);
+            });
+          });
+
+          element.addEventListener('mouseleave', () => {
+            isHovering = false;
+            chars.forEach((char) => {
+              if (!char) return;
+              // Kill any ongoing animations and reset
+              gsap.killTweensOf(char);
+              onLeave(char);
+            });
+          });
+        };
+
+        // Title line 1 - Simple scale on hover
         if (titleLine1Ref.current && title1CharsRef.current.length > 0) {
-          titleLine1Ref.current.addEventListener('mousemove', (e) => {
-            const rect = titleLine1Ref.current!.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            title1CharsRef.current.forEach((char, index) => {
-              if (!char) return;
-              const charRect = char.getBoundingClientRect();
-              const charX = charRect.left + charRect.width / 2 - rect.left;
-              const charY = charRect.top + charRect.height / 2 - rect.top;
-              
-              const dx = x - charX;
-              const dy = y - charY;
-              const distance = Math.sqrt(dx * dx + dy * dy);
-              const maxDistance = 100;
-              const force = Math.max(0, 1 - distance / maxDistance);
-              
+          setupHoverAnimation(
+            titleLine1Ref.current,
+            title1CharsRef.current,
+            (char, index) => {
               gsap.to(char, {
-                x: dx * force * 0.3,
-                y: dy * force * 0.3,
-                rotation: dx * force * 0.1,
-                scale: 1 + force * 0.2,
+                scale: 1.1,
+                y: -3,
                 duration: 0.3,
                 ease: 'power2.out',
-              });
-            });
-          });
-
-          titleLine1Ref.current.addEventListener('mouseleave', () => {
-            title1CharsRef.current.forEach((char) => {
-              if (!char) return;
-              gsap.to(char, {
-                x: 0,
-                y: 0,
-                rotation: 0,
-                scale: 1,
-                duration: 0.5,
-                ease: 'elastic.out(1, 0.5)',
-              });
-            });
-          });
-        }
-
-        // Hover animations for title line 2 - Glitch and wave effect
-        if (titleLine2Ref.current && title2CharsRef.current.length > 0) {
-          titleLine2Ref.current.addEventListener('mousemove', (e) => {
-            const rect = titleLine2Ref.current!.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            
-            title2CharsRef.current.forEach((char, index) => {
-              if (!char) return;
-              const charRect = char.getBoundingClientRect();
-              const charX = charRect.left + charRect.width / 2 - rect.left;
-              const distance = Math.abs(x - charX);
-              const maxDistance = 200;
-              const intensity = Math.max(0, 1 - distance / maxDistance);
-              
-              // Wave effect
-              const waveOffset = Math.sin((x - charX) * 0.02) * intensity * 20;
-              
-              gsap.to(char, {
-                y: waveOffset,
-                rotation: intensity * 15 * (Math.random() > 0.5 ? 1 : -1),
-                scale: 1 + intensity * 0.3,
-                color: `hsl(${94 + intensity * 60}, 67%, ${38 + intensity * 20}%)`,
-                duration: 0.2,
-                ease: 'power2.out',
-              });
-            });
-          });
-
-          titleLine2Ref.current.addEventListener('mouseleave', () => {
-            title2CharsRef.current.forEach((char) => {
-              if (!char) return;
-              gsap.to(char, {
-                y: 0,
-                rotation: 0,
-                scale: 1,
-                clearProps: 'color',
-                duration: 0.6,
-                ease: 'elastic.out(1, 0.5)',
-              });
-            });
-          });
-        }
-
-        // Hover animations for title line 3 - Staggered bounce
-        if (titleLine3Ref.current && title3CharsRef.current.length > 0) {
-          titleLine3Ref.current.addEventListener('mouseenter', () => {
-            title3CharsRef.current.forEach((char, index) => {
-              if (!char) return;
-              gsap.to(char, {
-                y: -15,
-                scale: 1.2,
-                opacity: 1,
-                duration: 0.3,
-                ease: 'back.out(2)',
                 delay: index * 0.02,
               });
-            });
-          });
+            },
+            (char) => {
+              gsap.to(char, {
+                scale: 1,
+                y: 0,
+                duration: 0.4,
+                ease: 'power2.out',
+              });
+            }
+          );
+        }
 
-          titleLine3Ref.current.addEventListener('mouseleave', () => {
-            title3CharsRef.current.forEach((char) => {
-              if (!char) return;
+        // Title line 2 - Subtle lift effect
+        if (titleLine2Ref.current && title2CharsRef.current.length > 0) {
+          setupHoverAnimation(
+            titleLine2Ref.current,
+            title2CharsRef.current,
+            (char, index) => {
+              gsap.to(char, {
+                y: -5,
+                scale: 1.05,
+                duration: 0.3,
+                ease: 'power2.out',
+                delay: index * 0.015,
+              });
+            },
+            (char) => {
               gsap.to(char, {
                 y: 0,
                 scale: 1,
                 duration: 0.4,
                 ease: 'power2.out',
               });
-            });
-          });
+            }
+          );
         }
 
-        // Hover animations for subtitle words - Individual word interactions
+        // Title line 3 - Gentle bounce
+        if (titleLine3Ref.current && title3CharsRef.current.length > 0) {
+          setupHoverAnimation(
+            titleLine3Ref.current,
+            title3CharsRef.current,
+            (char, index) => {
+              gsap.to(char, {
+                y: -8,
+                duration: 0.3,
+                ease: 'power2.out',
+                delay: index * 0.02,
+              });
+            },
+            (char) => {
+              gsap.to(char, {
+                y: 0,
+                duration: 0.4,
+                ease: 'power2.out',
+              });
+            }
+          );
+        }
+
+        // Subtitle words - Simple scale
         if (subtitleRef.current && subtitleWordsRef.current.length > 0) {
           subtitleWordsRef.current.forEach((word) => {
             if (!word) return;
             
             word.addEventListener('mouseenter', () => {
               gsap.to(word, {
-                scale: 1.15,
-                y: -5,
-                rotation: Math.random() * 4 - 2,
-                color: 'hsl(94, 67%, 45%)',
-                duration: 0.3,
-                ease: 'back.out(1.7)',
+                scale: 1.08,
+                duration: 0.2,
+                ease: 'power2.out',
               });
             });
 
             word.addEventListener('mouseleave', () => {
+              gsap.killTweensOf(word);
               gsap.to(word, {
                 scale: 1,
-                y: 0,
-                rotation: 0,
-                clearProps: 'color',
                 duration: 0.3,
                 ease: 'power2.out',
               });
